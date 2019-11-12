@@ -1,6 +1,7 @@
 import React from 'react';
 import Axios from 'axios';
 import "bulma/css/bulma.css";
+
 class  App extends React.Component {
   state = {
     issues : []
@@ -20,20 +21,18 @@ class  App extends React.Component {
     
     return (
       <div className="section">
-        <div className="box">
           {this.state.issues.map((issue) => {
-            return(<div className="content justified aligned" key={issue.id}>
+            return(<div className="box" key={issue.id}>
               <div>
-                <h1>{issue.title}</h1>
+                <h1 className="title">{issue.title}</h1>
               </div>
-              <a className = "meta" href={issue.url}>{issue.url}</a>
-              <div className="description has-text-justified">
+              <a className = "meta" href={issue.url}><p className="subtitle">{issue.url}</p></a>
+              <div className="">
                 <p>{issue.body}</p>
               </div>
               <br/>
               </div>)
             })}
-            </div>
         </div>
     );
   }
